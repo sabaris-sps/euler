@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class Solution {
+    public static int highestProd(String num, int k) {
+        int high = 0;
+        for(int i=0;i<num.length()-k;i++) {
+            int prod = num.charAt(i)-'0';
+            for(int j=i+1;j<i+k;j++) {
+                prod *= num.charAt(j) - '0';
+            }
+            if(prod>high) high = prod;
+        }
+        return high;
+    }
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int t = in.nextInt();
+        for(int a0 = 0; a0 < t; a0++){
+            int n = in.nextInt();
+            int k = in.nextInt();
+            String num = in.next();
+            System.out.println(highestProd(num, k));
+        }
+    }
+}
